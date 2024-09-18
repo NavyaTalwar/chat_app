@@ -12,6 +12,11 @@ This project is a messaging service that provides real-time communication betwee
 
 SYSTEM DESIGN:
 
+HERE IS THE DIAGRAM REPRESENTATION:
+
+
+![alt text](image.png)
+
 We can divide system design in two parts:
 
 1. HIGH-LEVEL SYSTEM DESIGN:
@@ -134,10 +139,6 @@ POST /api/messages/send: Sends a new message between users.
 GET /api/messages/conversation/{user_id}: Retrieves all messages between the logged-in user and another user.
 
 
-HERE IS THE DIAGRAM REPRESENTATION:
-
-
-![alt text](image.png)
 
 
 CONCLUSSION:
