@@ -139,6 +139,162 @@ POST /api/messages/send: Sends a new message between users.
 GET /api/messages/conversation/{user_id}: Retrieves all messages between the logged-in user and another user.
 
 
+## SETUP INSTRUCTIONS
+
+### 1. Prerequisites:
+
+#### Before you begin, make sure you have the following installed:
+
+Python (version 3.x)
+
+Node.js (version 14.x or above)
+
+npm or yarn (Node package managers)
+
+Django (version 3.x or above)
+
+SQLite (comes bundled with Python)
+
+Git (optional for cloning repository)
+
+ ### 2. Backend Setup (Django):
+
+ >Clone the repository:
+ 
+ Open your terminal and run the following:
+
+#### git clone your-repo-url
+
+#### cd your-repo-directory
+
+>Create a Python virtual environment:
+
+#### python3 -m venv venv
+
+#### source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+
+>Install dependencies: 
+
+#### pip install -r requirements.txt  # If a requirements.txt file is present
+
+### If not:
+
+#### pip install django djangorestframework
+
+>Run migrations:
+
+Set up the SQLite database with Django's built-in migration system.
+
+#### python manage.py migrate
+
+>Create a superuser: 
+
+To access the Django admin interface, create a superuser account
+
+#### python manage.py createsuperuser
+
+>Run the Django server:
+
+Start the backend server with the following command:
+
+#### python manage.py runserver
+
+Your backend API will be running at http://127.0.0.1:8000/
+
+
+## 3. Frontend Setup (React):
+
+>Navigate to the frontend directory:
+
+If your React app is located in a subdirectory (e.g., frontend):
+
+#### cd frontend
+
+>Install dependencies: 
+
+Install React and other necessary libraries like axios or fetch for handling API calls:
+
+#### npm install
+
+If you are using yarn, run:
+
+#### yarn install
+
+>Configure API URLs:
+
+In your React app, ensure that the base URL for your backend Django server is set correctly. This could be configured in an .env file or within your API utility code. Example (.env):
+
+REACT_APP_API_URL=http://127.0.0.1:8000
+
+>Run the React development server: 
+
+#### npm start
+
+If you’re using yarn:
+
+#### yarn start
+
+#### Your frontend will be available at http://localhost:3000/
+
+
+## 4. Integration (Connecting Frontend and Backend):
+
+#### The React frontend communicates with the Django backend via REST API calls. These are typically made using libraries like axios or fetch in React.
+
+#### Ensure that both servers (React on port 3000 and Django on port 8000) are running at the same time.
+
+### The frontend interacts with the following API endpoints in Django:
+
+POST /api/register - Registers a user
+
+POST /api/login - Logs a user in
+
+POST /api/messages/send - Sends a message
+
+GET /api/messages/conversation/{user_id} - Retrieves message history
+
+## 5. Testing the Application:
+
+#### 1..Register a new user via the frontend or using Django admin at http://127.0.0.1:8000/admin.
+
+#### 2.Login to the application through the frontend.
+
+#### 3.Send and receive messages using the built-in chat interface.
+
+## 6. Optional Deployment:
+
+You can deploy the prototype on cloud platforms like Heroku, AWS, or Vercel. Here's an outline:
+
+### Backend (Django):
+
+Use Heroku or AWS Elastic Beanstalk for deploying the Django app.
+
+Push your SQLite database to the cloud, or migrate to a production-level database like PostgreSQL.
+
+### Frontend (React):
+
+Deploy using Vercel or Netlify for easy CI/CD integration.
+
+## 7. Libraries and Dependencies:
+
+### Backend (Django):
+
+#### Django: 
+Main backend framework, provides easy handling of APIs and databases.
+
+#### Django REST Framework (DRF): 
+Extends Django to build RESTful APIs efficiently.
+
+#### SQLite:
+ Lightweight database for development, easy to use with Django's ORM.
+
+### Frontend (React):
+
+#### React:
+ JavaScript library for building user interfaces.
+
+#### Axios/Fetch: 
+Library for making HTTP requests to the Django backend.
 
 
 ## CONCLUSSION:
